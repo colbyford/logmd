@@ -32,3 +32,30 @@ Document/visualize fixing of pdb before running simulation. Example: I want to s
 ```
 >logmd watch 1crn.pdb # from terminal
 ```
+
+
+## Docker
+
+You can also run the model using Docker:
+
+1. Build the Docker image locally:
+
+   ```bash
+   docker build -t logmd .
+   ```
+
+   Or pull the pre-built image from Docker Hub:
+
+   ```bash
+   docker pull cford38/logmd:latest
+   ```
+
+2. Run the Docker container:
+
+   ```bash
+   docker run --gpus all --rm --name logmd -it logmd /bin/bash
+   # docker run --gpus all --rm --name logmd -it cford38/logmd:latest /bin/bash
+   ```
+
+> [!NOTE]
+> This image does not include all of the model weights, which will be downloaded the first time you run the Python library inside in the container.
